@@ -1,0 +1,28 @@
+graph TD
+    SC[StorageConfig sealed class]
+    SC --> WD[WebDavConfig]
+    SC --> FTP[FtpConfig]
+    SC --> SFTP[SftpConfig]
+    SC --> SMB[SmbConfig]
+    SC --> GD[GoogleDriveConfig]
+    SC --> DB[DropboxConfig]
+    SC --> OD[OneDriveConfig]
+    SC --> GIT[GitConfig]
+
+    ST[StorageType enum]
+    WD -.-> ST
+    FTP -.-> ST
+    SFTP -.-> ST
+    SMB -.-> ST
+    GD -.-> ST
+    DB -.-> ST
+    OD -.-> ST
+    GIT -.-> ST
+
+    WD --> WAT[WebDavAuthenticationType]
+    OD --> ODT[OneDriveDriveType]
+
+    SM[Storage Models]
+    SM --> SI[StorageInfo]
+    SM --> QI[QuotaInfo]
+    SM --> FI[FileInfo]

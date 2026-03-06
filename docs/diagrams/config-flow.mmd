@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant App
+    participant Config as StorageConfig
+    participant Json as kotlinx.serialization
+
+    App->>Config: Create WebDavConfig(name, url, user, pass)
+    Config-->>App: Immutable config instance
+
+    App->>Config: withEnabled(false)
+    Config-->>App: New disabled copy
+
+    App->>Json: encodeToString(config)
+    Json-->>App: JSON string
+
+    App->>Json: decodeFromString(json)
+    Json-->>App: Restored config
